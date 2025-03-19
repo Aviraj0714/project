@@ -35,7 +35,7 @@ const DataTable: React.FC<{ title: string; data: CellData[] }> = ({ title, data 
 export default function LeftPanel() {
   const [detectionResults, setDetectionResults] = useState<any[]>([]);
 
-  // ✅ Fetch Data from Backend
+  //  Fetch Data from Backend
   useEffect(() => {
     fetch("http://localhost:5000/api/detections")
       .then((res) => res.json())
@@ -43,7 +43,7 @@ export default function LeftPanel() {
       .catch((error) => console.error("Failed to load detection results:", error));
   }, []);
 
-  // ✅ Aggregate data by counting occurrences
+  //  Aggregate data by counting occurrences
   const countCells = (type: string) => {
     return detectionResults.filter((item: any) => item[4] === type).length;
   };
